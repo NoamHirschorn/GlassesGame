@@ -9,18 +9,20 @@ public class glassesgame
     public static void main(String[] args)
     {    
 	Scanner input = new Scanner(System.in);
-	
+	  /*
+	  *Ask the user about the number of glasses in the scenario 
+	  *and how many simulations they would like to run
+	  */
 	System.out.println("number of glasses?");
 	int glnum = input.nextInt();
 	System.out.println("number of simulations?");
     int simulnum = input.nextInt();
-	//System.out.println("HI");
-	//double simulnum = 250000, glnum = 6;	
-   //  double glnum = readDouble("How many glasses does the game have? "),simulnum = readDouble("How many simulations would you like to run? ");  
+	
      
          int moveCounter=0;
 	int x =(int)simulnum; 
           int numface =(int)glnum;
+	    //check inputs
             if(numface<1||x<1){
                 System.out.println("Please enter a valid input");
             }
@@ -28,16 +30,21 @@ public class glassesgame
                 retscreen(numface,numface,x,x,0);
             }
             else{
+	
+	//inputs are valid
+	/*
+	*set up the game
+	*/
           int [] numbers = new int [x];
             boolean [] gl = new boolean [numface];
        for(int i =0; i <x; i++){
            for(int j = 0;j<numface;j++){
        gl[j]=false;
    }
-           int eachRound = 0;
-		  // System.out.println("lii");
-      while(false==checkType(gl,true)){
-		 // System.out.println("6");
+           int eachRound = 0;	 
+	       //check game isn't over
+      while(false==checkType(gl,true)){	 
+	 // play another round
        int die  = (int)(Math.random() * (numface));
        moveCounter++;
      eachRound++;
@@ -46,9 +53,9 @@ public class glassesgame
 	   
       }
       numbers[i]= eachRound;
-	 // System.out.println("7");
+	
 }
- //System.out.println("8");
+// obtain and print the median, mean, and standard deviation for the given number of glasses 
 Arrays.sort(numbers);
 double median = (numbers[x/2]+numbers[(x/2)-1])/(double)2;
 double mean = moveCounter/(double)x;
